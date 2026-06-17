@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ====== PRELOADER ====== -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-star">✦</div>
+      <p class="preloader-text">Sebuah cerita sedang dimulai...</p>
+    </div>
+  </div>
+
+  <!-- ====== MUSIC TOGGLE ====== -->
+  <button id="musicToggle" class="music-btn" aria-label="Toggle Music">
+    <span class="music-icon">♫</span>
+  </button>
+
+  <!-- ====== PROGRESS BAR ====== -->
+  <div id="progressBar" class="progress-bar"></div>
+
+  <!-- ====== PARALLAX BACKGROUND ====== -->
+  <div id="parallaxBg" class="parallax-bg"></div>
+
+  <!-- ====== CANVAS (particles) ====== -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ======================================== -->
+  <!-- OPENING SCENE                           -->
+  <!-- ======================================== -->
+  <section id="opening" class="chapter opening">
+    <div class="opening-content">
+      <p class="opening-line" data-delay="500">"Dalam hidup...</p>
+      <p class="opening-line" data-delay="2000">Kita bertemu banyak orang...</p>
+      <p class="opening-line" data-delay="3500">Namun hanya beberapa yang meninggalkan cerita...</p>
+      <p class="opening-line" data-delay="5000">Dan kamu adalah salah satunya."</p>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-text">Gulir untuk memulai</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- STAR NIGHT TRANSITION → TITLE           -->
+  <!-- ======================================== -->
+  <section id="titleScene" class="chapter title-scene">
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="title-content">
+      <div class="title-star" id="brightStar">✦</div>
+      <h1 class="main-title">Selamat Ulang Tahun</h1>
+      <p class="sub-title">— Untuk yang pernah menjadi cerita —</p>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 1 — AWAL PERTEMUAN              -->
+  <!-- ======================================== -->
+  <section id="chapter1" class="chapter ch1">
+    <div class="ch1-sky"></div>
+    <div class="ch1-clouds">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+    </div>
+    <div class="ch1-birds">
+      <div class="bird bird-1">🕊</div>
+      <div class="bird bird-2">🕊</div>
+    </div>
+    <div class="ch1-content">
+      <div class="ch1-narration">
+        <p class="ch1-line" data-delay="200">"Aku tidak pernah tahu..."</p>
+        <p class="ch1-line" data-delay="2000">"Bahwa sebuah pertemuan sederhana..."</p>
+        <p class="ch1-line" data-delay="4000">"Akan menjadi kenangan yang begitu berharga."</p>
+      </div>
+      <div class="ch1-characters">
+        <!-- SVG two characters walking -->
+        <svg class="characters-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ground -->
+          <ellipse cx="200" cy="185" rx="190" ry="10" fill="#8B7355" opacity="0.3"/>
+          <!-- Person 1 (left) -->
+          <g class="person person-1">
+            <circle cx="130" cy="100" r="18" fill="#FFD4A8"/>
+            <ellipse cx="130" cy="140" rx="22" ry="30" fill="#4A6FA5"/>
+            <line x1="130" y1="170" x2="120" y2="190" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+            <line x1="130" y1="170" x2="140" y2="190" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+            <line x1="130" y1="120" x2="110" y2="145" stroke="#4A6FA5" stroke-width="4" stroke-linecap="round"/>
+            <line x1="130" y1="120" x2="150" y2="145" stroke="#4A6FA5" stroke-width="4" stroke-linecap="round"/>
+            <!-- Hair -->
+            <ellipse cx="130" cy="92" rx="20" ry="12" fill="#5C3A1E"/>
+            <!-- Eyes -->
+            <circle cx="124" cy="98" r="2" fill="#333"/>
+            <circle cx="136" cy="98" r="2" fill="#333"/>
+            <!-- Smile -->
+            <path d="M124 106 Q130 112 136 106" fill="none" stroke="#333" stroke-width="1.5"/>
+          </g>
+          <!-- Person 2 (right) -->
+          <g class="person person-2">
+            <circle cx="270" cy="100" r="16" fill="#E8C39E"/>
+            <ellipse cx="270" cy="138" rx="20" ry="28" fill="#D4726A"/>
+            <line x1="270" y1="166" x2="262" y2="190" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+            <line x1="270" y1="166" x2="278" y2="190" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+            <line x1="270" y1="118" x2="252" y2="140" stroke="#D4726A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="270" y1="118" x2="288" y2="140" stroke="#D4726A" stroke-width="4" stroke-linecap="round"/>
+            <!-- Hair (long) -->
+            <ellipse cx="270" cy="90" rx="18" ry="14" fill="#2C1810"/>
+            <path d="M252 90 Q248 110 250 130" fill="none" stroke="#2C1810" stroke-width="4"/>
+            <path d="M288 90 Q292 110 290 130" fill="none" stroke="#2C1810" stroke-width="4"/>
+            <!-- Eyes -->
+            <circle cx="264" cy="98" r="2" fill="#333"/>
+            <circle cx="276" cy="98" r="2" fill="#333"/>
+            <!-- Smile -->
+            <path d="M264 104 Q270 110 276 104" fill="none" stroke="#333" stroke-width="1.5"/>
+          </g>
+          <!-- Sun -->
+          <circle cx="350" cy="40" r="25" fill="#FFD700" opacity="0.6" class="sun-ch1"/>
+          <!-- Path -->
+          <path d="M50 185 Q200 175 350 185" fill="none" stroke="#C4A882" stroke-width="2" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 2 — CERITA YANG TUMBUH          -->
+  <!-- ======================================== -->
+  <section id="chapter2" class="chapter ch2">
+    <div class="ch2-content">
+      <h2 class="chapter-title">Cerita Yang Tumbuh</h2>
+      <div class="ch2-narration">
+        <p class="ch2-line">"Hari demi hari berlalu..."</p>
+        <p class="ch2-line">"Percakapan sederhana berubah menjadi cerita."</p>
+        <p class="ch2-line">"Cerita berubah menjadi kenangan."</p>
+        <p class="ch2-line">"Dan kenangan berubah menjadi bagian dari hidup."</p>
+      </div>
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="timeline-track"></div>
+        <div class="timeline-item" data-year="Pertemuan">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card polaroid">
+            <div class="polaroid-img" style="background: linear-gradient(135deg, #FFD4A8, #FFB347);">
+              <span>📸</span>
+            </div>
+            <p class="polaroid-caption">Hari pertama</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="Cerita">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card polaroid">
+            <div class="polaroid-img" style="background: linear-gradient(135deg, #A8D8EA, #AA96DA);">
+              <span>☕</span>
+            </div>
+            <p class="polaroid-caption">Setiap obrolan</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="Kenangan">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card polaroid">
+            <div class="polaroid-img" style="background: linear-gradient(135deg, #FFB7B2, #E2F0CB);">
+              <span>🎵</span>
+            </div>
+            <p class="polaroid-caption">Lagu favorit</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="Hidup">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card polaroid">
+            <div class="polaroid-img" style="background: linear-gradient(135deg, #FDCB6E, #E17055);">
+              <span>⭐</span>
+            </div>
+            <p class="polaroid-caption">Bagian dari hidup</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 3 — HAL-HAL KECIL               -->
+  <!-- ======================================== -->
+  <section id="chapter3" class="chapter ch3">
+    <h2 class="chapter-title">Hal-Hal Kecil Yang Berarti</h2>
+    <div class="ch3-book">
+      <div class="book-page" data-page="1">
+        <div class="page-content">
+          <div class="page-icon">😂</div>
+          <h3>Tertawa Bersama</h3>
+          <p>Ketika hari-hari berat terasa ringan hanya karena canda tawa kita.</p>
+        </div>
+      </div>
+      <div class="book-page" data-page="2">
+        <div class="page-content">
+          <div class="page-icon">🌙</div>
+          <h3>Mengobrol Hingga Larut</h3>
+          <p>Jam menunjukkan pukul 3 pagi, tapi percakapan kita tak pernah habis.</p>
+        </div>
+      </div>
+      <div class="book-page" data-page="3">
+        <div class="page-content">
+          <div class="page-icon">🤝</div>
+          <h3>Saling Mendukung</h3>
+          <p>Kamu ada saat aku jatuh. Aku ada saat kamu lelah.</p>
+        </div>
+      </div>
+      <div class="book-page" data-page="4">
+        <div class="page-content">
+          <div class="page-icon">💪</div>
+          <h3>Saling Menyemangati</h3>
+          <p>"Kamu bisa!" — dua kata yang selalu membuat segalanya terasa mungkin.</p>
+        </div>
+      </div>
+    </div>
+    <div class="book-nav">
+      <button class="book-nav-btn" id="bookPrev">◀</button>
+      <span class="book-page-num" id="bookPageNum">1 / 4</span>
+      <button class="book-nav-btn" id="bookNext">▶</button>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 4 — TERIMA KASIH                -->
+  <!-- ======================================== -->
+  <section id="chapter4" class="chapter ch4">
+    <div class="ch4-stars">
+      <div class="ch4-lanterns">
+        <div class="lantern lantern-1">🏮</div>
+        <div class="lantern lantern-2">🏮</div>
+        <div class="lantern lantern-3">🏮</div>
+        <div class="lantern lantern-4">🏮</div>
+        <div class="lantern lantern-5">🏮</div>
+      </div>
+    </div>
+    <div class="ch4-content">
+      <p class="ch4-line">"Mungkin tidak semua cerita ditakdirkan untuk berjalan selamanya."</p>
+      <p class="ch4-line">"Namun beberapa cerita diciptakan untuk mengajarkan arti berharga tentang kehidupan."</p>
+      <div class="ch4-thanks">
+        <p class="thanks-line">"Terima kasih..."</p>
+        <p class="thanks-line">"Untuk semua tawa."</p>
+        <p class="thanks-line">"Untuk semua pelajaran."</p>
+        <p class="thanks-line">"Untuk semua kenangan."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 5 — HARI INI                    -->
+  <!-- ======================================== -->
+  <section id="chapter5" class="chapter ch5">
+    <div class="ch5-fireworks" id="fireworks"></div>
+    <div class="ch5-content">
+      <div class="ch5-birthday">
+        <div class="cake-emoji">🎂</div>
+        <h2 class="birthday-title">Selamat Ulang Tahun</h2>
+        <p class="birthday-message">"Hari ini dunia sedang merayakan seseorang yang luar biasa."</p>
+      </div>
+      <div class="ch5-petals" id="petalsContainer"></div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 6 — DOA                         -->
+  <!-- ======================================== -->
+  <section id="chapter6" class="chapter ch6">
+    <div class="ch6-sunrise"></div>
+    <div class="ch6-content">
+      <p class="ch6-line">"Aku tidak tahu akan seperti apa masa depanmu."</p>
+      <p class="ch6-line">"Namun aku berharap..."</p>
+      <div class="ch6-hopes">
+        <p class="hope-line">🌅 Kebahagiaan selalu menemukan jalan menuju hatimu.</p>
+        <p class="hope-line">⭐ Impianmu satu per satu terwujud.</p>
+        <p class="hope-line">🙏 Dan setiap langkahmu dipenuhi keberkahan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CHAPTER 7 — PESAN TERAKHIR              -->
+  <!-- ======================================== -->
+  <section id="chapter7" class="chapter ch7">
+    <div class="ch7-content">
+      <div class="ch7-fade"></div>
+      <p class="ch7-line">"Jika suatu hari nanti..."</p>
+      <p class="ch7-line">"Kita hanya menjadi bagian dari masa lalu satu sama lain..."</p>
+      <p class="ch7-line">"Aku berharap ketika mengingat cerita ini..."</p>
+      <p class="ch7-line">"Yang tersisa hanyalah senyum."</p>
+      <div class="ch7-final">
+        <p class="ch7-final-line">"Terima kasih."</p>
+        <p class="ch7-final-line">"Selamat Ulang Tahun."</p>
+        <p class="ch7-final-line">"Bahagia Selalu."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- SECRET LETTER BUTTON                    -->
+  <!-- ======================================== -->
+  <section id="secretSection" class="chapter secret-section">
+    <button id="secretLetterBtn" class="secret-btn">
+      <span class="secret-btn-icon">💌</span>
+      <span class="secret-btn-text">Satu Pesan Terakhir</span>
+    </button>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- CLOSING                                  -->
+  <!-- ======================================== -->
+  <section id="closing" class="chapter closing">
+    <div class="closing-stars"></div>
+    <div class="closing-content">
+      <p class="closing-line">"Beberapa orang hadir dalam hidup kita bukan untuk tinggal selamanya..."</p>
+      <p class="closing-line">"Tetapi untuk meninggalkan kenangan yang tidak akan pernah hilang."</p>
+      <div class="closing-final">
+        <span class="closing-sparkle">✨</span>
+        <p class="closing-final-text">"Terima kasih telah menjadi bagian dari ceritaku."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== -->
+  <!-- SECRET LETTER MODAL                     -->
+  <!-- ======================================== -->
+  <div id="letterModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="letter-paper">
+        <div class="letter-header">
+          <span class="letter-date">Untukmu,</span>
+        </div>
+        <div class="letter-body">
+          <p class="letter-line">Hai, ifa</p>
+          <p class="letter-line">Selamat ulang tahun.</p>
+          <p class="letter-line">Aku hanya ingin kamu tahu bahwa kehadiranmu di dunia ini membuat segalanya menjadi lebih indah. Mungkin kita sudah tidak lagi berjalan bersama, dan mungkin itu yang terbaik untuk kita berdua. Tapi aku ingin kamu tahu, bahwa setiap momen bersamamu adalah hadiah yang akan selalu aku simpan.</p>
+          <p class="letter-line">Kamu adalah seseorang yang luar biasa. Jangan pernah lupa itu. Teruslah bersinar, teruslah bermimpi, dan teruslah menjadi dirimu sendiri.</p>
+          <p class="letter-line">Aku berharap kamu dikelilingi oleh cinta dan kebahagiaan, hari ini dan seterusnya.</p>
+          <p class="letter-line">Terima kasih untuk semuanya.</p>
+          <p class="letter-signature">Dengan penuh kasih,<br><span class="signature-name">— Seseorang yang pernah mengenalmu —</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
